@@ -14,12 +14,14 @@ import java.util.List;
 
 import tjsoft.com.holamundo.adapters.EstudianteAdapter;
 import tjsoft.com.holamundo.models.Estudiantes;
+import tjsoft.com.holamundo.models.EstudiantesHelper;
 
 public class ListActivity extends android.app.ListActivity {
 
     private ArrayList<String> lenguajes;
-    private Estudiantes e;
+    private EstudiantesHelper e;
     private EstudianteAdapter mAdapter;
+    private List<Estudiantes> estudiantesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +30,13 @@ public class ListActivity extends android.app.ListActivity {
 
         definirLenguajes();
 
-        e = new Estudiantes();
-        List<Estudiantes> estudiantesList = e.getEstudiantes();
+        e = new EstudiantesHelper(this);
+        //estudiantesList = e.getEstudiantes();
 
-        mAdapter = new EstudianteAdapter(this, estudiantesList);
+        //mAdapter = new EstudianteAdapter(this, estudiantesList);
 
         //ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(this,R.layout.item_list,R.id.tvItem,lenguajes);
-        setListAdapter(mAdapter);
+        //setListAdapter(mAdapter);
 
     }
 
@@ -77,5 +79,13 @@ public class ListActivity extends android.app.ListActivity {
         lenguajes.add("JavaScript");
         lenguajes.add("Python");
         lenguajes.add("Kotlin");
+    }
+
+    @Override
+    protected void onResume() {
+        estudiantesList = e.getEstudiantes();
+        mAdapter = new EstudianteAdapter(this, estudiantesList);
+        setListAdapter(mAdapter);
+        super.onResume();
     }
 }

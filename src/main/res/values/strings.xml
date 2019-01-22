@@ -2,4 +2,12 @@
     <string name="app_name">Hola UASD</string>
     <string name="prueba">Esto es una pruebasss</string>
     <string name="entre_un_texto">Entre un texto...</string>
+    <string name="ediar">Ediar</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="configuracion">Configuracion</string>
+    <string name="nombre">Nombre:</string>
+    <string name="matricula">Matricula:</string>
+    <string name="correo">Correo:</string>
+    <string name="guardar">Guardar</string>
 </resources>
